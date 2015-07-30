@@ -4,6 +4,7 @@
 @import "normalize";
 @import "typography";
 @import "cordova";
+@import "card";
 
 html, body{
 	height: 100%;
@@ -47,6 +48,8 @@ body {
   margin-top: 45px;
   overflow-y: scroll;
   height: calc(100% - 45px);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #map-canvas{

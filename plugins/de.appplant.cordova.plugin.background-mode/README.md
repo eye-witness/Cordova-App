@@ -50,7 +50,7 @@ cordova plugin add de.appplant.cordova.plugin.background-mode --searchpath path
 or to use the last stable version:
 ```bash
 # ~~ stable version ~~
-cordova plugin add de.appplant.cordova.plugin.background-mode@0.6.2
+cordova plugin add de.appplant.cordova.plugin.background-mode@0.6.3
 ```
 
 To remove the plug-in, run the following command:
@@ -61,13 +61,16 @@ cordova plugin rm de.appplant.cordova.plugin.background-mode
 ### PhoneGap Build
 Add the following xml to your config.xml to always use the latest version of this plugin:
 ```xml
-<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.2" />
+<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.3" />
 ```
 
 More informations can be found [here][PGB_plugin].
 
 
 ## ChangeLog
+#### Version 0.6.4 (03.03.2015)
+- Resolve possibly dependency conflict
+
 #### Version 0.6.3 (01.01.2015)
 - [feature:] Silent mode for Android
 
@@ -255,7 +258,7 @@ This software is released under the [Apache 2.0 License][apache2_license].
 [cordova]: https://cordova.apache.org
 [CLI]: http://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-line%20Interface
 [PGB]: http://docs.build.phonegap.com/en_US/index.html
-[PGB_plugin]: https://build.phonegap.com/plugins/490
+[PGB_plugin]: https://build.phonegap.com/plugins/2056
 [changelog]: CHANGELOG.md
 [enable]: #prevent-the-app-from-going-to-sleep-in-background
 [disable]: #pause-the-app-while-in-background
