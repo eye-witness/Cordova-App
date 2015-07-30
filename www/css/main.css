@@ -388,9 +388,21 @@ th {
   src: local("Roboto Bold"), local("Roboto-Bold"), url("Roboto Bold.woff") format("woff"); }
 
 /* headers */
+* {
+  font-family: 'Roboto'; }
+
 h1 {
   font-family: 'Roboto';
   font-weight: 300; }
+
+h2 {
+  text-align: center;
+  font-weight: 300;
+  font-family: 'Roboto';
+  margin: 0;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-size: 28px; }
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -424,6 +436,56 @@ body {
 
 /* Portrait layout (default) */
 /* Landscape layout (with min-width) */
+.card {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  margin-top: 15px; }
+
+.card-header {
+  background-color: #3367d6;
+  height: 100px;
+  border-radius: 12px 12px 0 0; }
+
+.card-header-circle {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  background-color: #d7d7d7;
+  margin: auto;
+  position: relative;
+  top: -15px;
+  overflow: hidden; }
+
+.card-body {
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+  padding: 15px;
+  margin: 0;
+  border-radius: 0 0 12px 12px;
+  height: 200px;
+  transition: height 0.5s ease; }
+
+.card-footer {
+  display: none; }
+
+.card-expanded {
+  height: calc(100% - 45px);
+  margin-bottom: 0px;
+  z-index: 999; }
+  .card-expanded .card-body {
+    height: calc(100% - 115px - 60px);
+    border-radius: 0; }
+  .card-expanded .card-footer {
+    display: block;
+    background-color: #3367d6;
+    height: 60px;
+    border-radius: 0 0 12px 12px; }
+
+.card-hidden {
+  display: none; }
+
 html, body {
   height: 100%; }
 
@@ -457,7 +519,9 @@ body {
 .app {
   margin-top: 45px;
   overflow-y: scroll;
-  height: calc(100% - 45px); }
+  height: calc(100% - 45px);
+  padding-left: 10px;
+  padding-right: 10px; }
 
 #map-canvas {
   height: 50%;

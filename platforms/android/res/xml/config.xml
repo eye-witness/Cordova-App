@@ -1,24 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
+    <feature name="LocalNotification">
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
     </feature>
     <feature name="BackgroundMode">
         <param name="android-package" value="de.appplant.cordova.plugin.background.BackgroundMode" />
     </feature>
     <preference name="KeepRunning" value="true" />
     <allow-intent href="market:*" />
-    <name>HelloCordova</name>
+    <name>eyeWitness</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Tracks your location and matches up to police request for informations 
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="eyeWitness@idealcoder.co.uk" href="http://cordova.io">
+        eyeWitness Team
     </author>
     <content src="index.html" />
     <allow-intent href="http://*/*" />
@@ -30,4 +37,5 @@
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
+    <icon src="www/img/logo2.png" />
 </widget>
