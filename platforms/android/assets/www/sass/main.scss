@@ -27,7 +27,6 @@ body {
 	width: 100%;
 	top: 0;
 	h1 {
-		margin-top: 0;
 		font-size: 28px;
         line-height: 30px;
 		display: inline;
@@ -39,9 +38,10 @@ body {
 	  float: right;	
 
 	}
-	img{
+    .refresh{
+	  position: relative;
+	  left: -25px;
 	  height: 30px;
-	  margin-right: 25px;
 	  margin-top: 7px;
 	}
 }
