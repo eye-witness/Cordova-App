@@ -361,6 +361,18 @@ var app = {
     },
     reportCard: function(id){
       //make a popup message
+      
+      //set popup style to display
+      var e = document.getElementById('popup');
+      e.setAttribute('style','display:block;');
+      var e = document.getElementById('app');
+      e.setAttribute('style','display:none;');
+    },
+    closeReportCard: function(){
+      var e = document.getElementById('popup');
+      e.setAttribute('style','display:none;');
+      var e = document.getElementById('app');
+      e.setAttribute('style','display:block;');      
     },
     filterData: function(data){
       data = JSON.parse(data);
