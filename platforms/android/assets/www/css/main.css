@@ -439,7 +439,6 @@ body {
 .card {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 15px;
   margin-top: 15px; }
 
 .card-header {
@@ -463,25 +462,37 @@ body {
   background-color: #fff;
   padding: 15px;
   margin: 0;
-  border-radius: 0 0 12px 12px;
-  height: 200px;
-  transition: height 0.5s ease; }
+  border-radius: 0 0 12px 12px; }
 
 .card-footer {
   display: none; }
 
 .card-expanded {
-  height: calc(100% - 45px);
+  height: calc(100% - 15px);
   margin-bottom: 0px;
   z-index: 999; }
+  .card-expanded .card-header {
+    height: 25px; }
+    .card-expanded .card-header .card-header-circle {
+      display: none; }
   .card-expanded .card-body {
     height: calc(100% - 115px - 60px);
     border-radius: 0; }
   .card-expanded .card-footer {
     display: block;
     background-color: #3367d6;
-    height: 60px;
-    border-radius: 0 0 12px 12px; }
+    height: 65px;
+    border-radius: 0 0 12px 12px;
+    padding: 15px; }
+    .card-expanded .card-footer .button {
+      position: relative;
+      float: left;
+      color: #fff;
+      text-align: center;
+      padding-left: 40px; }
+    .card-expanded .card-footer .right {
+      float: right;
+      padding-right: 40px; }
 
 .card-hidden {
   display: none; }
@@ -500,6 +511,7 @@ body {
   text-align: center;
   padding-left: 15px;
   position: fixed;
+  z-index: 9999;
   width: 100%;
   top: 0; }
   .header h1 {
@@ -523,6 +535,49 @@ body {
   padding-left: 10px;
   padding-right: 10px; }
 
-#map-canvas {
-  height: 50%;
-  width: 100%; }
+#popup {
+  box-sizing: border-box;
+  margin: auto;
+  border-radius: 6px;
+  margin-top: 40%;
+  width: 50%;
+  min-width: 200px;
+  background-color: #fff;
+  text-align: center;
+  padding: 10px; }
+  #popup h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-top: -30px; }
+  #popup a {
+    display: block;
+    background-color: #3367d6;
+    width: calc(100% - 20px);
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center; }
+  #popup p {
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #popup img {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    position: relative;
+    top: -40px;
+    background-color: #3367d6;
+    border-radius: 50%;
+    border: 3px solid #fff; }
+
+.map {
+  height: 55%;
+  width: calc(100% + 30px);
+  margin-top: -15px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 15px; }
