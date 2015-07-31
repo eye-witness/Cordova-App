@@ -10,13 +10,7 @@ var that;
 var db;
 var lastUpdate = 0;
 var backendURL = "http://104.236.110.36/index.php/api/appeals/";
-var currentEvents = [{"case_id":"200","time":"1438334674","latitude":"52.035642","longitude":" -1.329481","radius":"100","description":{
-    "location":"Next to M40 at Bodicote","crimeType":"Car Crash","text":"Blue Toyota Prius with unkown number plate collided with white Audi. Driver left the scene without providing ID."
- },"police_force_id":"1","block_id":"105,-4","created":"1438334674","contact":{"phoneNumber":"101","policeForce":"Surrey Police"}},
- {"case_id":"201","time":"1438334674","latitude":"52.035642","longitude":" -1.329481","radius":"100","description":{
-    "location":"Last seen near Star Bucks","crimeType":"Missing Person","text":"Male age 17 left home at 5:30, spotted at Star Bucks, but not since. Wearing Red T-Shirt,  6 Foot 2."
- },"police_force_id":"1","block_id":"105,-4","created":"1438334674","contact":{"phoneNumber":"101","policeForce":"Surrey Police"}}
- ];
+var currentEvents;
 
 
 
@@ -117,7 +111,7 @@ var app = {
     },
     loadGoogleMaps: function(db, id, lat, long, msg){
         //check there is internet connection before loading app
-        if (google) {
+        if ( typeof(google) !== 'undefined' ) {
             var mapOptions = {
               center: { lat: -25.363882, lng: 131.044922},
               zoom: 14,
@@ -337,11 +331,18 @@ var app = {
         for (var key in currentEvents) {
             if (currentEvents.hasOwnProperty(key)) {
                 var e = currentEvents[key];
+                var img;
                 
                 console.log(e.description.crimeType);
                 
+                if (e.description.crimeType === 'Missing Person'){
+                  img = 'img/person.png';
+                } else {
+                  img = 'img/map.png';
+                }
+                
                 var child = document.createElement('div');
-                child.innerHTML = '<div data-lat="'+e.latitude+'" data-long="'+e.longitude+'"  data-msg="'+e.description.crimeType+'" class="card" onclick="app.expand(this)" id="card-'+e.case_id+'"><div class="card-header"><div class="card-header-circle"></div></div><div class="card-body"><h2>'+e.description.crimeType+'</h2>Date: 31/07 16:57<br>Location: '+e.description.location+'<br><br>'+e.description.text+'<br></div><div class="card-footer"><div class="button"><span onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"><span onclick="app.deleteCard('+e.case_id+')"><img src="img/dismiss.png" height="40px"/><br>Dismiss</span></span></div><div class="button right"><span onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"><span onclick="app.reportCard('+e.case_id+')"><img src="img/report.png" height="40px"  /><br>Report</span></span></div></div></div>';
+                child.innerHTML = '<div data-lat="'+e.latitude+'" data-long="'+e.longitude+'"  data-msg="'+e.description.crimeType+'" class="card" onclick="app.expand(this)" id="card-'+e.case_id+'"><div class="card-header"><div class="card-header-circle"><img src="'+img+'" /></div></div><div class="card-body"><h2>'+e.description.crimeType+'</h2>Date: 31/07 16:57<br>Location: '+e.description.location+'<br><br>'+e.description.text+'<br></div><div class="card-footer"><div class="button"><span onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"><span onclick="app.deleteCard('+e.case_id+')"><img src="img/dismiss.png" height="40px"/><br>Dismiss</span></span></div><div class="button right"><span onclick="event.cancelBubble=true;if (event.stopPropagation) event.stopPropagation();"><span onclick="app.reportCard('+e.case_id+')"><img src="img/report.png" height="40px"  /><br>Report</span></span></div></div></div>';
                 child = child.firstChild;
                 document.getElementsByClassName('app')[0].appendChild(child);
             }
@@ -410,6 +411,21 @@ var app = {
       
       
 
+    },
+    refresh: function(){
+      //force sync with server
+      that.runUpdate(db);
+      
+      currentEvents = [{"case_id":"200","time":"1438334674","latitude":"52.035642","longitude":" -1.329481","radius":"100","description":{
+    "location":"Next to M40 at Bodicote","crimeType":"Car Crash","text":"Blue Toyota Prius with unkown number plate collided with white Audi. Driver left the scene without providing ID."
+ },"police_force_id":"1","block_id":"105,-4","created":"1438334674","contact":{"phoneNumber":"101","policeForce":"Surrey Police"}},
+ {"case_id":"201","time":"1438334674","latitude":"52.035642","longitude":" -1.329481","radius":"100","description":{
+    "location":"Last seen near Star Bucks","crimeType":"Missing Person","text":"Male age 17 left home at 5:30, spotted at Star Bucks, but not since. Wearing Red T-Shirt,  6 Foot 2."
+ },"police_force_id":"1","block_id":"105,-4","created":"1438334674","contact":{"phoneNumber":"101","policeForce":"Surrey Police"}}
+ ];
+   
+   that.renderUI();
+      
     }
 };
 
@@ -441,5 +457,13 @@ Array.prototype.remove = function(from, to) {
   this.length = from < 0 ? this.length + from : from;
   return this.push.apply(this, rest);
 };
+
+currentEvents = [{"case_id":"200","time":"1438334674","latitude":"52.035642","longitude":" -1.329481","radius":"100","description":{
+    "location":"Next to M40 at Bodicote","crimeType":"Car Crash","text":"Blue Toyota Prius with unkown number plate collided with white Audi. Driver left the scene without providing ID."
+ },"police_force_id":"1","block_id":"105,-4","created":"1438334674","contact":{"phoneNumber":"101","policeForce":"Surrey Police"}},
+ {"case_id":"201","time":"1438334674","latitude":"52.035642","longitude":" -1.329481","radius":"100","description":{
+    "location":"Last seen near Star Bucks","crimeType":"Missing Person","text":"Male age 17 left home at 5:30, spotted at Star Bucks, but not since. Wearing Red T-Shirt,  6 Foot 2."
+ },"police_force_id":"1","block_id":"105,-4","created":"1438334674","contact":{"phoneNumber":"101","policeForce":"Surrey Police"}}
+ ];
 
 app.initialize();

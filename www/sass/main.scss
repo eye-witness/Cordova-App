@@ -34,8 +34,16 @@ body {
 		position: relative;
 		top: -3px;
 	}
+    span {
+	  position: relative;
+	  float: right;	
 
-
+	}
+	img{
+	  height: 30px;
+	  margin-right: 25px;
+	  margin-top: 7px;
+	}
 }
 
 .inline-image{

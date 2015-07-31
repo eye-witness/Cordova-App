@@ -455,6 +455,9 @@ body {
   position: relative;
   top: -15px;
   overflow: hidden; }
+  .card-header-circle img {
+    width: 100%;
+    height: 100%; }
 
 .card-body {
   position: relative;
@@ -521,6 +524,13 @@ body {
     display: inline;
     position: relative;
     top: -3px; }
+  .header span {
+    position: relative;
+    float: right; }
+  .header img {
+    height: 30px;
+    margin-right: 25px;
+    margin-top: 7px; }
 
 .inline-image {
   height: 36px;
