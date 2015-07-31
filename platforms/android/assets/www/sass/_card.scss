@@ -1,7 +1,6 @@
 .card{
 	width: 100%;
 	border-radius: 12px;
-	margin-bottom: 15px;
 	margin-top: 15px;
 }
 
@@ -38,9 +37,15 @@
 }
 
 .card-expanded {
-	height: calc(100% - 45px);
+	height: calc(100% - 15px);
 	margin-bottom: 0px;
 	z-index: 999;
+    .card-header{
+		height: 25px;
+		.card-header-circle{
+			display: none;
+		}
+	}
 	.card-body{
 	  height: calc(100% - 115px - 60px);
 	  border-radius: 0;
@@ -48,8 +53,20 @@
 	.card-footer{
 		display:block;
 		background-color: $color-primary;
-		height: 60px;
+		height: 65px;
 	    border-radius: 0 0 12px 12px;
+		padding: 15px;
+		.button {
+			position: relative;
+			float: left;
+			color: #fff;
+			text-align: center;
+			padding-left: 40px;
+		}
+		.right{
+			float: right;
+			padding-right: 40px;
+		}
 	}
 }
 

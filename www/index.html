@@ -28,10 +28,14 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline' *.googleapis.com *.gstatic.com ; 
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline' *.googleapis.com *.gstatic.com 104.236.110.36; 
                     script-src 'self' 'unsafe-inline' 'unsafe-eval'
             https://*.gstatic.com https://*.googleapis.com; style-src 'self' 'unsafe-eval' 'unsafe-inline' *.googleapis.com; media-src * ; img-src 'self' 'unsafe-inline' 'unsafe-eval'
-            https://*.gstatic.com https://*.googleapis.com">
+            https://*.gstatic.com https://*.googleapis.com; 
+            
+            connect-src 'self' data: gap: https://ssl.gstatic.com http://104.236.110.36/index.php/api/appeals/;
+            
+            ">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -46,44 +50,8 @@
           <img src="img/logo1.png" class="inline-image" />
           <h1>Witness</h1>
         </div>
-        <div class="app">
+        <div class="app" id="app" stlye='display:none'>
             <!-- <div id="map-canvas"></div> -->
-            <div class="card" onclick='app.expand(this)' id="card-1">
-                <div class="card-header">
-                    <div class="card-header-circle"></div>
-                </div>
-                <div class="card-body">
-                    <h2>Stolen Socks</h2>
-                    Time: 6pm<br>
-                    Location: Near Oliver<br>
-                    Matt is the main suspect<br>
-                </div>
-                <div class="card-footer">
-                  <button>Dismiss</button><button>X</button>
-                </div>
-            </div>
-            <div class="card" onclick='app.expand(this)' id="card-2">
-                <div class="card-header">
-                    <div class="card-header-circle"></div>
-                </div>
-                <div class="card-body">
-                    <h2>Stolen Socks</h2>
-                    Time: 6pm<br>
-                    Location: Near Oliver<br>
-                    Matt is the main suspect<br>
-                </div>
-            </div>
-            <div class="card" onclick='app.expand(this)' id="card-2">
-                <div class="card-header">
-                    <div class="card-header-circle"></div>
-                </div>
-                <div class="card-body">
-                    <h2>Stolen Socks</h2>
-                    Time: 6pm<br>
-                    Location: Near Oliver<br>
-                    Matt is the main suspect<br>
-                </div>
-            </div>
         </div>
         
         <!-- The javascript -->

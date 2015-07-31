@@ -23,6 +23,7 @@ body {
 	text-align: center;
 	padding-left: 15px;
 	position: fixed;
+	z-index: 9999;
 	width: 100%;
 	top: 0;
 	h1 {
@@ -52,7 +53,11 @@ body {
   padding-right: 10px;
 }
 
-#map-canvas{
-  height: 50%;
-  width: 100%;
+.map{
+  height: 55%;
+  width: calc(100% + 30px);
+  margin-top: -15px;
+  margin-left: -15px;
+  margin-right: -15px;
+  margin-bottom: 15px;
 }
