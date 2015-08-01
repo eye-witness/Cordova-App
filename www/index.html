@@ -49,7 +49,7 @@
         <div class="header">
           <img src="img/logo1.png" class="inline-image" />
           <h1>Witness</h1>
-          <span>Reload</span>
+          <span onclick="app.refresh()"><img class="refresh" src='img/refresh.png'/></span>
         </div>
         <div class="app" id="app">
             <!-- <div id="map-canvas"></div> -->
@@ -57,7 +57,7 @@
         <div id="popup" style='display:none'>
           <img src='img/logo1.png' />
           <h1>Report to Police</h1>
-          <p>Do not hesitate to report any suspicous behaviour</p>
+          <p>Don't hesitate to report any suspicous behaviour</p>
           <a href="tel:101">Call 101</a>
           <!--<a href="mailto: ">Email</a>-->
           <a onclick='app.closeReportCard()'>Cancel</a>
